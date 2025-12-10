@@ -1,0 +1,4 @@
+﻿# Normalize text files
+* text=auto
+*.py text
+*.md  text
