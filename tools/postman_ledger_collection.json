@@ -1,0 +1,70 @@
+﻿{
+  "info": {
+    "name": "Ledger API - Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create account",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"user_id\":\"alice\",\"account_type\":\"checking\",\"currency\":\"USD\"}"
+        },
+        "url": {"raw":"http://127.0.0.1:8000/accounts","protocol":"http","host":["127.0.0.1"],"port":"8000","path":["accounts"]}
+      }
+    },
+    {
+      "name": "Get account",
+      "request": {
+        "method": "GET",
+        "url": {"raw":"http://127.0.0.1:8000/accounts/:id","protocol":"http","host":["127.0.0.1"],"port":"8000","path":["accounts",":id"]}
+      }
+    },
+    {
+      "name": "Get ledger for account",
+      "request": {
+        "method": "GET",
+        "url": {"raw":"http://127.0.0.1:8000/accounts/:id/ledger","protocol":"http","host":["127.0.0.1"],"port":"8000","path":["accounts",":id","ledger"]}
+      }
+    },
+    {
+      "name": "Deposit",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {
+          "mode":"raw",
+          "raw":"{\"type\":\"deposit\",\"amount\":\"100.00\",\"currency\":\"USD\",\"destination_account_id\":5,\"description\":\"initial deposit\"}"
+        },
+        "url": {"raw":"http://127.0.0.1:8000/deposits","protocol":"http","host":["127.0.0.1"],"port":"8000","path":["deposits"]}
+      }
+    },
+    {
+      "name": "Withdrawal",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {
+          "mode":"raw",
+          "raw":"{\"type\":\"withdrawal\",\"amount\":\"50.00\",\"currency\":\"USD\",\"source_account_id\":5,\"description\":\"withdraw\"}"
+        },
+        "url": {"raw":"http://127.0.0.1:8000/withdrawals","protocol":"http","host":["127.0.0.1"],"port":"8000","path":["withdrawals"]}
+      }
+    },
+    {
+      "name": "Transfer",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {
+          "mode":"raw",
+          "raw":"{\"type\":\"transfer\",\"amount\":\"30.00\",\"currency\":\"USD\",\"source_account_id\":5,\"destination_account_id\":8,\"description\":\"rent\"}"
+        },
+        "url": {"raw":"http://127.0.0.1:8000/transfers","protocol":"http","host":["127.0.0.1"],"port":"8000","path":["transfers"]}
+      }
+    }
+  ]
+}
